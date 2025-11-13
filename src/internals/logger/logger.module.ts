@@ -1,13 +1,16 @@
-import { Module } from "@nestjs/common";
-import { WinstonModule } from "nest-winston";
-import { winstonLogger } from ".";
-import { AppLogger } from "./logger.services";
+import { Module } from '@nestjs/common';
+import { AppLogger } from './logger.services';
+import * as winston from 'winston';
+import { winstonLogger } from '.';
 
+
+const winstonProvider = {
+  provide: 'winston',
+  useFactory: () => winston.createLogger(winstonLogger()),
+};
 
 @Module({
-    imports: [WinstonModule.forRoot(winstonLogger())],
-    providers:[AppLogger],
-    exports: [AppLogger],
+  providers: [winstonProvider, AppLogger],
+  exports: [AppLogger],
 })
-
 export class LoggerModule {}

@@ -6,7 +6,7 @@ import { ApiGatewayService } from './modules/api-gateway/gateway.services';
 import { rabbitmqConnection } from './modules/rabbitmq/rabbitmq.connection';
 
 async function bootstrap() {
-    const app = await NestFactory.create(AppModule, { logger: false });
+    const app = await NestFactory.create(AppModule);
     const logger = app.get(AppLogger);
     const gatewayService = app.get(ApiGatewayService);
     const config = app.get(ConfigService);
