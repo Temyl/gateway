@@ -11,14 +11,7 @@ export default Joi.object({
     
     PORT: Joi.number().default(8113),
 
-   
-
-    TOKEN_STORE_URL: Joi.string().required(),
-    APP_CACHE_URL: Joi.string().required(),
-
     SERVICE_NAME: Joi.string().default('notification_system'),
     RABBIT_MQ_URL: Joi.string().required(),
-
-    FIREBASE_CERTIFICATE_PATH: Joi.string().required(),
 
 });
