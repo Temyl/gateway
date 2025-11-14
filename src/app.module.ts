@@ -5,13 +5,17 @@ import { ApiGatewayService } from './modules/api-gateway/gateway.services';
 import { EnvModule } from './internals/env/env.module';
 import { LoggerModule } from './internals/logger/logger.module';
 
+
 @Global()
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({ 
+      isGlobal: true,
+     }),
     EnvModule,
     LoggerModule,
   ],
+  
   controllers: [ApiGatewayController],
   providers: [ApiGatewayService],
   exports: [LoggerModule, EnvModule],
