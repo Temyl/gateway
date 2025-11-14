@@ -12,16 +12,9 @@ services:
     ports:
       - "8110:8110"
     depends_on:
-      - redis
       - rabbitmq
 
-  redis:
-    image: redis:7-alpine
-    container_name: api-gateway-redis
-    restart: always
-    ports:
-      - "6379:6379"
-
+ 
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: api-gateway-rabbitmq
